@@ -1,0 +1,17 @@
+{
+  "name": "local-agent-harness",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local extensible agent tool harness with CLI and loopback Web management",
+  "engines": { "node": ">=24 <25" },
+  "scripts": {
+    "check": "tsc --noEmit",
+    "build": "tsc && node scripts/build.mjs",
+    "test": "npm run build && node --test --test-concurrency=1 dist/tests/*.test.js",
+    "cli": "node dist/src/cli.js",
+    "start": "node dist/src/cli.js serve"
+  },
+  "dependencies": { "ajv": "8.17.1", "commander": "14.0.2" },
+  "devDependencies": { "@types/node": "24.10.1", "typescript": "5.9.3" }
+}

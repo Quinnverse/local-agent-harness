@@ -1,0 +1,16 @@
+{
+  "id": "demo.file-stats",
+  "name": "本地文件统计",
+  "description": "通过宿主授权目录读取 UTF-8 文件，统计字节、逻辑行和空白词元。",
+  "version": "1.0.0",
+  "protocolVersion": "1.0",
+  "entry": "dist/index.js",
+  "capabilities": [{
+    "name": "file.stats",
+    "description": "读取授权文件并返回统计结果。",
+    "inputSchema": { "type": "object", "properties": { "path": { "type": "string", "minLength": 1, "maxLength": 4096 } }, "required": ["path"], "additionalProperties": false },
+    "outputSchema": { "type": "object", "properties": { "bytes": { "type": "integer", "minimum": 0 }, "lines": { "type": "integer", "minimum": 0 }, "tokens": { "type": "integer", "minimum": 0 } }, "required": ["bytes", "lines", "tokens"], "additionalProperties": false }
+  }],
+  "configSchema": { "type": "object", "properties": { "maxBytes": { "type": "integer", "minimum": 1, "maximum": 1048576, "default": 1048576 } }, "additionalProperties": false },
+  "permissions": ["files.read"]
+}

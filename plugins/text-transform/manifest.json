@@ -1,0 +1,16 @@
+{
+  "id": "demo.text-transform",
+  "name": "文本转换",
+  "description": "独立、确定性的大小写转换插件；不调用语言模型。",
+  "version": "1.0.0",
+  "protocolVersion": "1.0",
+  "entry": "dist/index.js",
+  "capabilities": [{
+    "name": "text.transform",
+    "description": "按插件配置转换输入文本的大小写。",
+    "inputSchema": { "type": "object", "properties": { "text": { "type": "string", "maxLength": 10000 } }, "required": ["text"], "additionalProperties": false },
+    "outputSchema": { "type": "object", "properties": { "text": { "type": "string" } }, "required": ["text"], "additionalProperties": false }
+  }],
+  "configSchema": { "type": "object", "properties": { "caseMode": { "type": "string", "enum": ["upper", "lower"], "default": "upper" } }, "additionalProperties": false },
+  "permissions": []
+}
